@@ -20,7 +20,7 @@ while choix != secret:
     essais = essais + 1
 
     if choix < secret:
-        print ("Trop petit")
+        print ("Trop ptit")
     elif choix == secret:
         print ("Gagné !")
     else:
