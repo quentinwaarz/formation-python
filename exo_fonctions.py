@@ -11,7 +11,7 @@ print(ressenti(15))
 print(ressenti(25))
 print(ressenti(26))
 
-# --- Exercice 2 : aire_rectangle ---
+# --- Exercice 2 : aire_rectangle ----
 def aire_rectangle(longueur, largeur):
     return longueur * largeur
 print(aire_rectangle(5,3))
