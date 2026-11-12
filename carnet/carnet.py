@@ -1,8 +1,10 @@
 def ajouter():  
     while True :
-        tache = input("Nouvelle tâche ? ")
+        tache = input("Nouvelle tâche ? ").strip()
         if tache == "q":
             break
+        elif tache == "":
+            continue
         with open("taches.txt", "a", encoding="utf-8") as f:
             f.write(f"{tache}\n")
 
@@ -17,9 +19,17 @@ def afficher():
         print("Aucune tâche pour l'instant.")
 
 def supprimer():
-    with open("taches.txt", "r", encoding="utf-8") as f:
-        taches = f.readlines()
+    try:
+        with open("taches.txt", "r", encoding="utf-8") as f:
+            taches = f.readlines()
+    except FileNotFoundError:
+        print("Aucune tâche à supprimer.")
+        return
+    try :
         numero = int(input("Numéro à supprimer ? "))
+    except ValueError :
+        print("Entre un nombre.")
+        return
     if 1 <= numero <= len(taches) :
         taches.pop(numero - 1)
         with open("taches.txt", "w", encoding="utf-8") as f:
